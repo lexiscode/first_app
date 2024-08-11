@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
               style: TextStyle(color: Color(0xffFFFFFF), fontSize: 30.0),
             ),
           ),
-          body: Column(
+          body: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                   height: 100.0,
@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
                     'images/dashatar.png',
                   )),
               Container(
-                  height: 100.0,
-                  width: 200.0,
+                  height: 200.0,
+                  width: 100.0,
                   color: Colors.black,
                   child: Image.asset(
                     'images/dashatar.png',
