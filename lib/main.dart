@@ -12,42 +12,69 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.blue,
-          appBar: AppBar(
-            backgroundColor: Colors.black,
-            centerTitle: true,
-            title: const Text(
-              "My Dashatar App",
-              style: TextStyle(color: Color(0xffFFFFFF), fontSize: 30.0),
-            ),
+        backgroundColor: Colors.blue,
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: const Text(
+            "My Dashatar App",
+            style: TextStyle(color: Color(0xffFFFFFF), fontSize: 30.0),
           ),
-          body: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                  height: 100.0,
-                  width: 100.0,
-                  color: Colors.yellow,
-                  child: Image.asset(
-                    'images/dashatar.png',
-                  )),
-              Container(
-                  height: 200.0,
-                  width: 100.0,
-                  color: Colors.black,
-                  child: Image.asset(
-                    'images/dashatar.png',
-                  )),
-              Container(
-                  height: 100.0,
-                  width: 100.0,
-                  color: Colors.red,
-                  child: Image.asset(
-                    'images/dashatar.png',
-                  )),
-            ],
-          )),
+        ),
+        body: ListView(
+          scrollDirection: Axis.horizontal, // this works for Row() child
+          children: [
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                    height: 100.0,
+                    width: 100.0,
+                    color: Colors.yellow,
+                    child: Image.asset(
+                      'images/dashatar.png',
+                    )),
+                Container(
+                    height: 100.0,
+                    width: 100.0,
+                    color: Colors.black,
+                    child: Image.asset(
+                      'images/dashatar.png',
+                    )),
+                Container(
+                    height: 100.0,
+                    width: 100.0,
+                    color: Colors.red,
+                    child: Image.asset(
+                      'images/dashatar.png',
+                    )),
+                Container(
+                    height: 100.0,
+                    width: 100.0,
+                    color: Colors.yellow,
+                    child: Image.asset(
+                      'images/dashatar.png',
+                    )),
+                Container(
+                    height: 100.0,
+                    width: 100.0,
+                    color: Colors.black,
+                    child: Image.asset(
+                      'images/dashatar.png',
+                    )),
+                Container(
+                    height: 100.0,
+                    width: 100.0,
+                    color: Colors.red,
+                    child: Image.asset(
+                      'images/dashatar.png',
+                    )),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
