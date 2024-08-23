@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,18 +15,33 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int count = 0;
-  Color brown = Colors.brown;
-  Color black = Colors.black;
-  Color temp = Colors.white; // not really used per say
+  //Color brown = Colors.brown;
+  //Color black = Colors.black;
+  //Color temp = Colors.white; // not really used per say
+
+  List<Color> colours = [
+    Colors.white,
+    Colors.black,
+    Colors.blue,
+    Colors.red,
+    Colors.green,
+    Colors.purple,
+    Colors.orange
+  ];
+
+  int appBar = 0;
+  int scaffold = 0;
+
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: brown,
+        backgroundColor: colours[scaffold],
         appBar: AppBar(
-          backgroundColor: black,
+          backgroundColor: colours[appBar],
           centerTitle: true,
           title: Text(
             "$count",
@@ -36,9 +53,8 @@ class _MyAppState extends State<MyApp> {
           onPressed: () {
             setState(() {
               count++;
-              temp = brown;
-              brown = black;
-              black = temp;
+              appBar = random.nextInt(7);
+              scaffold = random.nextInt(7);
             });
           },
         ),
