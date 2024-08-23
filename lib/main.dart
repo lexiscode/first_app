@@ -35,7 +35,8 @@ class _MyAppState extends State<MyApp> {
 
   Random random = Random();
 
-  String kick = "Kick.wav";
+  List sounds = ['Kick.wav', 'Ride.wav', 'Snare.wav', 'Tom.wav'];
+  int soundPosition = 0;
   final player = AudioPlayer();
 
   @override
@@ -47,9 +48,11 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           backgroundColor: colours[appBar],
           centerTitle: true,
-          title: Text(
-            "$count",
-            style: const TextStyle(color: Color(0xffFFFFFF), fontSize: 30.0),
+          title: IconButton(
+            icon: const Icon(Icons.refresh, color: Colors.blueAccent),
+            onPressed: () {
+              soundPosition = random.nextInt(4);
+            },
           ),
         ),
         body: MaterialButton(
@@ -57,7 +60,7 @@ class _MyAppState extends State<MyApp> {
           onPressed: () {
             setState(() {
               count++;
-              player.play(AssetSource(kick));
+              player.play(AssetSource(sounds[soundPosition]));
               appBar = random.nextInt(7);
               scaffold = random.nextInt(7);
             });
