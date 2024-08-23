@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,6 +35,9 @@ class _MyAppState extends State<MyApp> {
 
   Random random = Random();
 
+  String kick = "Kick.wav";
+  final player = AudioPlayer();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,10 +53,11 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         body: MaterialButton(
-          child: Image.asset('images/dashatar.png'),
+          child: Image.asset('assets/images/dashatar.png'),
           onPressed: () {
             setState(() {
               count++;
+              player.play(AssetSource(kick));
               appBar = random.nextInt(7);
               scaffold = random.nextInt(7);
             });
