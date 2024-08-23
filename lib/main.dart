@@ -4,75 +4,43 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int count = 0;
+  Color brown = Colors.brown;
+  Color black = Colors.black;
+  Color temp = Colors.white; // not really used per say
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: brown,
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: black,
           centerTitle: true,
-          title: const Text(
-            "My Dashatar App",
-            style: TextStyle(color: Color(0xffFFFFFF), fontSize: 30.0),
+          title: Text(
+            "$count",
+            style: const TextStyle(color: Color(0xffFFFFFF), fontSize: 30.0),
           ),
         ),
-        body: ListView(
-          scrollDirection: Axis.horizontal, // this works for Row() child
-          children: [
-            Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.yellow,
-                    child: Image.asset(
-                      'images/dashatar.png',
-                    )),
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.black,
-                    child: Image.asset(
-                      'images/dashatar.png',
-                    )),
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.red,
-                    child: Image.asset(
-                      'images/dashatar.png',
-                    )),
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.yellow,
-                    child: Image.asset(
-                      'images/dashatar.png',
-                    )),
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.black,
-                    child: Image.asset(
-                      'images/dashatar.png',
-                    )),
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.red,
-                    child: Image.asset(
-                      'images/dashatar.png',
-                    )),
-              ],
-            ),
-          ],
+        body: MaterialButton(
+          child: Image.asset('images/dashatar.png'),
+          onPressed: () {
+            setState(() {
+              count++;
+              temp = brown;
+              brown = black;
+              black = temp;
+            });
+          },
         ),
       ),
     );
